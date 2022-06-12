@@ -1,4 +1,4 @@
-### After you create your app weither its react or nextjs
+# After you create your app weither its react or nextjs
 
 ## Install prettier first
 
