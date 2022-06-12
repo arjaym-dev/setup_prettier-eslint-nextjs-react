@@ -8,7 +8,7 @@ npm install --save-dev --save-exact prettier @typescript-eslint/eslint-plugin es
 yarn add --save-dev --save-exact prettier @typescript-eslint/eslint-plugin eslint-config-prettier
 ```
 
-## After installing prettier create a .prettierignore & .prettierrc.json file
+## After installing prettier let's setup our prettier config. Create a .prettierignore & .prettierrc.json file
 
 ```
 // .prettierignore
@@ -73,4 +73,47 @@ lerna-debug.log*
   "endOfLine": "auto"
 }
 ```
+## As for our eslint to work with prettier and override some next.js/react.js default eslint config;
+## Install @typescript-eslint/eslint-plugin
 
+```
+npm i --save-dev @typescript-eslint/eslint-plugin
+#or
+yarn add --save-dev @typescript-eslint/eslint-plugin
+```
+
+## After our install go and look into our folder the .eslintrc.json file
+
+```
+#Put this config for our .eslintrc.json
+
+{
+  "env": {
+    "node": true,
+    "browser": true,
+    "es2021": true
+  },
+  "plugins": ["@typescript-eslint"],
+  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "prettier"],
+  "rules": {
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-prototype-builtins": "off",
+    "class-methods-use-this": "off",
+    "linebreak-style": "off",
+    "no-undef": "error",
+    "no-console": "error",
+    "prefer-default-export": "off",
+    "import/prefer-default-export": "off",
+    "import/no-cycle": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-floating-promises": "off"
+  }
+}
+
+```
